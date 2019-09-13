@@ -8,6 +8,10 @@ import { radianCircle } from "@pencil.js/math";
  * @extends Component
  */
 export default class Arc extends Component {
+    horizontalRadius: number;
+    verticalRadius: number;
+    startAngle: number;
+    endAngle: number;
     /**
      * Arc constructor
      * @param {PositionDefinition} positionDefinition - Center of arc
@@ -30,7 +34,7 @@ export default class Arc extends Component {
      * @param {Path2D} path - Drawing context
      * @return {Arc} Itself
      */
-    trace (path) {
+    trace (path: Path2D): Arc {
         const correction = -0.25;
         const startAngle = (this.startAngle + correction) * radianCircle;
         const endAngle = (this.endAngle + correction) * radianCircle;
